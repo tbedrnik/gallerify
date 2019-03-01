@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallerify</title>
+  <link rel="stylesheet/less" href="css/index.less">
+  <script src="js/less.min.js"></script>
+</head>
+<body>
+  <div class="page-holder" id="app">
+    <header id="header">
+      <h1>Gallerify</h1>
+      <nav>
+        <ul>
+          <li>
+            <input type="checkbox" id="search-toggle" hidden>
+            <label for="search-toggle"><i class="fas fa-search"></i></label>
+            <input type="text" class="search-box" placeholder="Search tags...">
+          </li>
+          <li>
+            <input type="checkbox" id="add-toggle" hidden>
+            <label for="add-toggle"><i class="fas fa-camera"></i></label>
+            <div class="add-modal">
+              <label class="exit" for="add-toggle"><i class="fas fa-times"></i></label>
+              <div class="add-modal-body">
+                <div id="add-mode-holder">
+                  <div class="mode active" id="upload-mode">
+                    <i class="far fa-file-image fa-3x"></i>
+                    <span>Drag your image here</span>
+                    <div class="input">
+                      Or <span>choose a file</span>
+                      <input type="file" name="file_input">
+                    </div>
+                  </div>
+                  <div class="mode" id="camera-mode">
+                    <video src="none"></video>
+                    <span>Click on video to take a shot</span>
+                  </div>
+                  <div class="mode" id="loading">
+                    <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+                  </div>
+                  <div class="mode" id="format-error">
+                    <i class="fas fa-times fa-3x"></i>
+                    <span>Unsupported format</span>
+                    <span class="resetbtn">Reset</span>
+                  </div>
+                  <div class="mode" id="form">
+                    <img src="none" alt="Picture preview">
+                    <canvas width=640 height=360 class="hidden"></canvas>
+                    <form action="save">
+                      <input type="text" id="uf_name" placeholder="Picture name">
+                      <input type="text" id="uf_tags" placeholder="Tags (seperated by space)">
+                      <input type="submit" value="Save">
+                    </form>
+                  </div>
+                </div>
+                <div class="controls">
+                  <div class="mode-switcher">
+                    <span data-mode="upload" title="Switch to file upload mode"><i class="fas fa-file-image fa-fw"></i> File upload</span>
+                    <span data-mode="camera" title="No camera device found" class="unavailable"><i class="fas fa-camera fa-fw"></i> Camera</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="latest">
+      <!-- <div class="category-arrow"></div> -->
+      <div class="arrow-heading">
+        <h1>Latest</h1>
+      </div>
+      <div class="nodes">
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+      </div>
+    </section>
+    <section id="nearest">
+      <div class="arrow-heading">
+        <h1>Nearest</h1>
+      </div>
+      <div class="arrow"></div>
+      <div class="nodes">
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+        <div class="node-holder">
+          <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        </div>
+      </div>
+      <!-- <div class="category-arrow"></div> -->
+    </section>
+    <footer id="footer">
+      Made with 🖤 by TBWebdesign &copy; 2018
+    </footer>
+  </div>
+  <div class="zoom-image-modal">
+    <div class="zoom-image-modal-mount"></div>
+  </div>
+  <div class="tags-mode">
+    <h2 id="tags">Write some tag</h2>
+    <div class="nodes">
+      <div class="node-holder">
+        <span style="font-size: 2em;"><i class="fas fa-times"></i> No results</span>
+      </div>
+    </div>
+  </div>
+  <script src="js/fontawesome-all.min.js"></script>
+  <script src="js/Item.js"></script>
+  <script src="js/ItemNode.js"></script>
+  <script src="js/ArrayAddons.js"></script>
+  <script src="js/dataURItoBlob.js"></script>
+  <script src="js/logic.js"></script>
+  <!-- <script src="js/add.js"></script> -->
+</body>
+</html>
